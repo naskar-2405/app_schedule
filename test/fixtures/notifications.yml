@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  managerID: 1
+  requestID: 1
+  status: 1
+
+two:
+  managerID: 1
+  requestID: 1
+  status: 1
