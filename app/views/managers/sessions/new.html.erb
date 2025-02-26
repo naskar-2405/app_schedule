@@ -1,26 +1,36 @@
 <h2>管理者ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @manager, url: manager_session_path, id: "new_manager", class: "new_manager", local:true do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :id, "ID" %><br />
+    <%= f.text_field :id, autofocus: true, autocomplete: "id" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :パスワード %><br />
+    <%= f.password_field :password, id: "password_field", autocomplete: "current-password" %><br>
+    <%= f.check_box :show_password, id: "show_password" %>
+    <%= label_tag :show_password, "パスワードを表示" %>
   </div>
 
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+
+<%
+=begin
+%>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
+ <%= render "managers/shared/links" %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "managers/shared/links" %>
+<%
+=end
+%>
