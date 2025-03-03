@@ -2,8 +2,8 @@
 
 <%= form_with model: @manager, url: manager_session_path, id: "new_manager", class: "new_manager", local:true do |f| %>
   <div class="field">
-    <%= f.label :id, "ID" %><br />
-    <%= f.text_field :id, autofocus: true, autocomplete: "id" %>
+    <%= f.label :loginID, "ID" %><br />
+    <%= f.text_field :loginID, autofocus: true, autocomplete: "LoginID" %>
   </div>
 
   <div class="field">

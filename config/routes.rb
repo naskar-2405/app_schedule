@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get "managers/home"
+  get "manager/home"
   devise_for :managers
   devise_for :employees
 
-
+  get "managers/home" => "managers#home"
+  get "managers/managers" => "managers#managers"
+  get "managers/employees" => "managers#employees"
+  get "managers/schedule" => "managers#schedule"
+  get "managers/notification" => "managers#notification"
 
 
 
