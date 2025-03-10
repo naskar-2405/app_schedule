@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   get "managers/home"
   get "manager/home"
-  devise_for :managers
+  devise_for :managers, controllers: {
+    registrations: "managers/registrations",
+    sessions: "managers/sessions",
+    passwords: "managers/passwords",
+    confirmations: "managers/confirmations"
+  }
   devise_for :employees
 
   get "managers/home" => "managers#home"
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
   get "managers/employees" => "managers#employees"
   get "managers/schedule" => "managers#schedule"
   get "managers/notification" => "managers#notification"
+  get "managers/managers/create" => "managers#create"
 
 
 

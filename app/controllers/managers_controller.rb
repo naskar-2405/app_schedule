@@ -13,5 +13,8 @@ class ManagersController < ApplicationController
 
   def notification
   end
-  
+
+  def create
+  end
+
 end
