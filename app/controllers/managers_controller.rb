@@ -17,4 +17,7 @@ class ManagersController < ApplicationController
   def create
   end
 
+
+
+
 end

@@ -1,24 +1,26 @@
-<h2>Sign up</h2>
+<h2>管理者登録</h2>
 
 <%= form_with model: @manager, url: manager_registration_path do |f| %>
   <%= render "managers/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :loginID %><br />
+    <%= f.label :loginID, "ID" %><br />
     <%= f.text_field :loginID, autofocus: true, autocomplete: "LoginID" %>
   </div>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em >(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, id: "password_field", autocomplete: "current-password" %><br>
+    <%= f.check_box :show_password, id: "show_password" %>
+    <%= label_tag :show_password, "パスワードを表示" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

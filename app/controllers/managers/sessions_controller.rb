@@ -24,7 +24,17 @@ class Managers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  private
 
+  def after_sign_in_path_for(resource)
+    managers_home_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    new_manager_session_path # ログアウト後にログインページにリダイレクトする場合
+    # または、任意のパスを指定
+    # root_path
+  end
   
 end
 
